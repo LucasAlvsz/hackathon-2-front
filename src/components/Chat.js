@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import logout from '../assets/log-out-outline.svg';
 import micoff from '../assets/mic-off-outline.svg';
 import video from '../assets/videocam-off-outline.svg';
 
 export default function Chat() {
+    const navigate = useNavigate();
     dotenv.config();
     const [messages, setMessages] = useState([]);
 
@@ -31,7 +33,7 @@ export default function Chat() {
         <Div>
             <Header>
                 <h1>Nome do professor</h1>
-                <img src={logout} alt="logout" />
+                <img src={logout} alt="logout" onClick={()=> {navigate('/')}}/>
             </Header>
             <ChatBox>
                 <div className="chat-body">
