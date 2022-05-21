@@ -16,11 +16,6 @@ export default function Chat() {
 	const [update, setUpdate] = useState(false)
 
 	useEffect(() => {
-		let studentId = JSON.parse(localStorage.getItem("studentId"))
-		let teacherId = JSON.parse(localStorage.getItem("teacherId"))
-		let chatId = JSON.parse(localStorage.getItem("chatId"))
-		let studentName = "Lucax" //JSON.parse(localStorage.getItem("studentName"))
-
 		const config = {
 			headers: {
 				chat_id: "62883ca56b13c3dcc6ee19c7",
@@ -57,7 +52,9 @@ export default function Chat() {
 						return (
 							<div
 								className={
-									"Lucax" === from
+									JSON.parse(
+										localStorage.getItem("studentName")
+									) === from
 										? "chat-message-right"
 										: "chat-message-left"
 								}>
@@ -75,13 +72,19 @@ export default function Chat() {
 							.post(
 								"https://hackathon-2-back.herokuapp.com/messages",
 								{
-									from: "62884320fa668ad39b40f119", //JSON.parse(localStorage.getItem("studentId")),
-									to: "62884166f42b5f7eaba10a18", //JSON.parse(localStorage.getItem("teacherId")),
+									from: JSON.parse(
+										localStorage.getItem("studentId")
+									),
+									to: JSON.parse(
+										localStorage.getItem("teacherId")
+									),
 									text: newMessage,
 								},
 								{
 									headers: {
-										chat_id: "62883ca56b13c3dcc6ee19c7", // JSON.parse(localStorage.getItem("chatId"))
+										chat_id: JSON.parse(
+											localStorage.getItem("chatId")
+										),
 									},
 								}
 							)
