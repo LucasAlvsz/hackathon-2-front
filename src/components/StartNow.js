@@ -22,6 +22,10 @@ export default function StartNow() {
 								"studentId",
 								JSON.stringify(data)
 							)
+							localStorage.setItem(
+								"studentName",
+								JSON.stringify(name)
+							)
 							navigate("/choices")
 						})
 						.catch(err => console.log(err))
