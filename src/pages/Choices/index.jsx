@@ -52,12 +52,12 @@ export default function Choices(props) {
         setProfessors(response.data)
         setShowProfessors(true)
       } else {
-        const { student_id } = JSON.parse(localStorage.getItem("auth"))
+        const student_id = JSON.parse(localStorage.getItem("studentId"))
         const response = await axios.post(
           "https://hackathon-2-back.herokuapp.com/match/new-chat",
           { student_id, teacher_id: professorId },
         )
-        localStorage.setItem("chatId", { id: response.data.chatId })
+        localStorage.setItem("chatId", response.data.chatId)
         navigate("/chat")
       }
     } catch (e) {
