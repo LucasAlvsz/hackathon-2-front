@@ -9,14 +9,21 @@ import micoff from '../assets/mic-off-outline.svg';
 import video from '../assets/videocam-off-outline.svg';
 
 export default function Chat() {
+
     const navigate = useNavigate();
     dotenv.config();
     const [messages, setMessages] = useState([]);
+    const [newMessage, setNewMessage] = useState('');
+    const [update, setUpdate] = useState(false);
 
     useEffect(()=> {
+        let studentId = JSON.parse(localStorage.getItem("studentId"));
+        let teacherId = JSON.parse(localStorage.getItem("teacherId"));
+        let chatId = JSON.parse(localStorage.getItem("chatId"));
+
         const config = {
             headers : {
-                chat_id : "62883ca56b13c3dcc6ee19c7"
+                chat_id : '62883ca56b13c3dcc6ee19c7'
             }           
         }
         const promise = axios.get('https://hackathon-2-back.herokuapp.com/messages', config);
@@ -27,7 +34,7 @@ export default function Chat() {
         promise.catch(error => {
             console.log(error);
         });
-    },[]);
+    },[update]);
 
     return(
         <Div>
@@ -38,13 +45,29 @@ export default function Chat() {
             <ChatBox>
                 <div className="chat-body">
                 {messages.map(({text}) => {
-                    console.log(text)
                     return (<div className="chat-message-left">{text}</div>)
                 })}
                 </div>
             </ChatBox>
             <Footer>
-                <input type='text' placeholder="Digite sua mensagem aqui..."/>
+                <form onSubmit={e => {
+                    e.preventDefault();
+                    axios.post('https://hackathon-2-back.herokuapp.com/messages',                         {
+                        from: '62884320fa668ad39b40f119', //JSON.parse(localStorage.getItem("studentId")),
+                        to: '62884166f42b5f7eaba10a18',  //JSON.parse(localStorage.getItem("teacherId")),
+                        text: newMessage
+                    },
+                    {
+                        headers: {
+                            chat_id: '62883ca56b13c3dcc6ee19c7' // JSON.parse(localStorage.getItem("chatId"))
+                        }}
+                    ).then(()=> {
+                        setUpdate(!update);
+                        setNewMessage('');
+                    }).catch(error => {console.log(error)})
+                }}>
+                    <input type='text' placeholder="Digite sua mensagem aqui..." value={newMessage} onChange={e => {setNewMessage(e.target.value)}}/>
+                </form>
                 <img src={micoff} alt="microfone off"/>
                 <img src={video} alt="video off"/>
             </Footer>
