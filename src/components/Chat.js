@@ -1,18 +1,37 @@
 import styled from 'styled-components';
+import axios from 'axios';
+import dotenv from 'dotenv';
 import { useContext, useState, useEffect } from 'react';
 
+import logout from '../assets/log-out-outline.svg';
+import micoff from '../assets/mic-off-outline.svg';
+import video from '../assets/videocam-off-outline.svg';
+
 export default function Chat() {
+    dotenv.config();
     const [messages, setMessages] = useState([]);
 
     useEffect(()=> {
-        const URL = 'algoaqui'
-        const promisse = axios.get
+        const config = {
+            headers : {
+                chat_id : "62883ca56b13c3dcc6ee19c7"
+            }           
+        }
+        const promise = axios.get('https://hackathon-2-back.herokuapp.com/messages', config);
+        promise.then(response => {
+            console.log(response.data);
+            setMessages(response.data);
+        });
+        promise.catch(error => {
+            console.log(error);
+        });
     },[]);
 
     return(
         <Div>
             <Header>
                 <h1>Nome do professor</h1>
+                <img src={logout} alt="logout" />
             </Header>
             <ChatBox>
                 <div className="chat-body">
@@ -24,6 +43,8 @@ export default function Chat() {
             </ChatBox>
             <Footer>
                 <input type='text' placeholder="Digite sua mensagem aqui..."/>
+                <img src={micoff} alt="microfone off"/>
+                <img src={video} alt="video off"/>
             </Footer>
         </Div>
     )
@@ -41,7 +62,7 @@ const Header = styled.div`
     height: 50px;
     background-color : #008580;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     position: fixed;
@@ -53,6 +74,10 @@ const Header = styled.div`
         font-family: 'Press Start 2P', cursive;
         font-size: 20px;
         color: #FFFFFF;
+    }
+
+    img {
+        width: 30px;
     }
 `;
 const ChatBox = styled.div`
@@ -125,6 +150,7 @@ const Footer = styled.div`
     height: 50px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     background-color: #008580;
     position: fixed;
@@ -137,5 +163,8 @@ const Footer = styled.div`
         height: 100%;
         border: none;
         border-radius: 5px;
+    }
+    img {
+        width: 30px;
     }
 `;
