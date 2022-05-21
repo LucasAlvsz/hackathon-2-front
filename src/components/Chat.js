@@ -35,10 +35,10 @@ export default function Chat() {
             </Header>
             <ChatBox>
                 <div className="chat-body">
-                    <div className="chat-message-left">offfffffffffffffffffffffffffffffffffffffffffffffffff ffffffffffffff fffffffffi1</div>
-                    <div className="chat-message-right">oi</div>
-                    <div className="chat-message-left">td bom</div>
-                    <div className="chat-message-right">sim</div>
+                {messages.map(({text}) => {
+                    console.log(text)
+                    return (<div className="chat-message-left">{text}</div>)
+                })}
                 </div>
             </ChatBox>
             <Footer>
