@@ -73,16 +73,16 @@ export default function Chat() {
             </Footer>
         </Div>
     )
-}
 
 // styled components
 const Div = styled.div`
-    background-color: #37cfc8;
-    width: 100%;
-    height: 100vh;
-    box-sizing: border-box;
-`;
+	background-color: #37cfc8;
+	width: 100%;
+	height: 100vh;
+	box-sizing: border-box;
+`
 const Header = styled.div`
+
     width: 100%;
     height: 50px;
     background-color : #008580;
@@ -106,71 +106,73 @@ const Header = styled.div`
     }
 `;
 const ChatBox = styled.div`
-    width: 100%;
-    height: 100%;
-    padding-top: 80px;
-    box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding-top: 80px;
+	box-sizing: border-box;
 
-    .chat-header {
-        width: 95%;
-        height: 50px;
-        background-color: #1caaa4;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        font-family: Raleway;
-        font-size: 20px;
-    }
+	.chat-header {
+		width: 95%;
+		height: 50px;
+		background-color: #1caaa4;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-    .chat-body {
-        width: 95%;
-        height: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        box-sizing: border-box;
-        padding: 10px;
-    }
+		font-family: Raleway;
+		font-size: 20px;
+	}
 
-    .chat-message-right, .chat-message-left {
-        min-width: 150px;
-        min-height: 30px;
-        background: #FFFFFF;
-        padding: 10px;
-        text-align: center;
-        font-family: Raleway;
-        font-size: 20px;
-        border-radius: 35px;
-        position: relative;
-        margin-top: 10px;
-    }
-    .chat-message-right:before {
-        content: "";
-        position: absolute;
-        border-left: 20px solid #FFFFFF;
-        border-right: 20px solid transparent;
-        border-top: 20px solid #FFFFFF;
-        border-bottom: 20px solid transparent;
-        right: -20px;
-        top: 10px;
-    }
-    .chat-message-left:before {
-        content: "";
-        position: absolute;
-        border-right: 20px solid #FFFFFF;
-        border-left: 20px solid transparent;
-        border-top: 20px solid #FFFFFF;
-        border-bottom: 20px solid transparent;
-        left: -20px;
-        top: 10px;
-    }
-    .chat-message-right {
-        margin-left: auto;
-    }
-`;
+	.chat-body {
+		width: 95%;
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		box-sizing: border-box;
+		padding: 10px;
+	}
+
+	.chat-message-right,
+	.chat-message-left {
+		min-width: 150px;
+		min-height: 30px;
+		background: #ffffff;
+		padding: 10px;
+		text-align: center;
+		font-family: Raleway;
+		font-size: 20px;
+		border-radius: 35px;
+		position: relative;
+		margin-top: 10px;
+	}
+	.chat-message-right:before {
+		content: "";
+		position: absolute;
+		border-left: 20px solid #ffffff;
+		border-right: 20px solid transparent;
+		border-top: 20px solid #ffffff;
+		border-bottom: 20px solid transparent;
+		right: -20px;
+		top: 10px;
+	}
+	.chat-message-left:before {
+		content: "";
+		position: absolute;
+		border-right: 20px solid #ffffff;
+		border-left: 20px solid transparent;
+		border-top: 20px solid #ffffff;
+		border-bottom: 20px solid transparent;
+		left: -20px;
+		top: 10px;
+	}
+	.chat-message-right {
+		margin-left: auto;
+	}
+`
 const Footer = styled.div`
+
     width: 100%;
     height: 50px;
     display: flex;
@@ -193,3 +195,4 @@ const Footer = styled.div`
         width: 30px;
     }
 `;
+
