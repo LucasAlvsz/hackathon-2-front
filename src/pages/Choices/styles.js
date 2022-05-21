@@ -19,6 +19,11 @@ export const Container = styled.main`
     margin-bottom: 10px;
     color: #333;
   }
+
+  .selected {
+    background-color: #333;
+    color: #fff;
+  }
 `
 
 export const Header = styled.header`
@@ -89,4 +94,10 @@ export const Professor = styled.div`
   opacity: 0.8;
   padding: 20px;
   color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+`
+export const ProfessorContainer = styled.div`
+  width: 450px;
+  margin: 0 auto;
 `

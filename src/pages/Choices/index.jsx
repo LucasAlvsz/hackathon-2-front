@@ -92,20 +92,26 @@ export default function Choices(props) {
         </S.Form>
       )}
 
-      {showProfessors && <h3>Professores</h3>}
-      {showProfessors && (
-        <div>
-          {professors.map((professor) => (
-            <S.Professor onClick={() => handleProfessor(professor._id)}>
-              <h4>{professor.name}</h4>
-            </S.Professor>
-          ))}
-        </div>
-      )}
+      <S.ProfessorContainer>
+        {showProfessors && <h3>Professores</h3>}
+        {showProfessors && (
+          <div>
+            {professors.map((professor) => (
+              <S.Professor
+                className={professorId === professor._id ? "selected" : ""}
+                onClick={() => handleProfessor(professor._id)}
+              >
+                <h4>{professor.name}</h4>
+              </S.Professor>
+            ))}
+          </div>
+        )}
+      </S.ProfessorContainer>
 
       <S.Button
         className={selected.length === 0 ? "disabled" : ""}
         onClick={handleSend}
+        disabled={showProfessors && !professorId}
       >
         Prosseguir
       </S.Button>
