@@ -1,13 +1,17 @@
-// import React from "react"
-// import Routes from "./routes"
-// import "reset-css"
-// import GlobalStyles from "./globalStyles"
+import React from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "reset-css";
 
-// export default function App() {
-// 	return (
-// 		<>
-// 			<GlobalStyles />
-// 			<Routes />
-// 		</>
-// 	)
-// }
+import StartNow from "./components/StartNow";
+import Chat from "./components/Chat";
+
+export default function App() {
+	return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<StartNow />} />
+                <Route path="/chat" element={<Chat />} />
+            </Routes>
+        </BrowserRouter>
+	)
+}
