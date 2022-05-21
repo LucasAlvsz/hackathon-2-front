@@ -4,6 +4,7 @@ import "reset-css"
 
 import StartNow from "./components/StartNow"
 import Chat from "./components/Chat"
+
 import Choices from "./../src/pages/Choices"
 
 export default function App() {
@@ -16,4 +17,4 @@ export default function App() {
       </Routes>
     </BrowserRouter>
   )
-}
+
