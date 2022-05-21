@@ -4,7 +4,7 @@ import "reset-css"
 
 import StartNow from "./components/StartNow"
 import Chat from "./components/Chat"
-import Choices from "./pages/Choices"
+import Choices from "./../src/pages/Choices"
 
 export default function App() {
   return (
