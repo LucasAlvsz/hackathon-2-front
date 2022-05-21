@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Raleway:wght@100;300;400;500;700&display=swap');
     * {
         margin: 0;
         padding: 0;
@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
         outline: 0;
     }
     body {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Raleway', sans-serif;
         font-size: 16px;
     }
     button {
@@ -32,6 +32,9 @@ const GlobalStyle = createGlobalStyle`
     }
     h1{
         cursor: default;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 40px;
+        color: #008580;
     }
     p{
         cursor: default;

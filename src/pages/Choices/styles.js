@@ -9,14 +9,25 @@ export const Container = styled.main`
   padding-top: 200px;
   background-color: var(--primary-color);
   color: var(--text-color);
+
+  .disabled {
+    display: none;
+  }
+
+  h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: #333;
+  }
 `
 
 export const Header = styled.header`
   width: 100%;
   height: 150px;
 
-  font-size: 38px;
-  font-weight: 700;
+  font-family: "Press Start 2P", cursive;
+  font-size: 40px;
+  color: #008580;
   background-color: var(--primary-color);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
@@ -55,4 +66,27 @@ export const SelectContainer = styled.div`
     border-radius: 5px;
     border: none;
   }
+`
+
+export const Button = styled.button`
+  width: 150px;
+  height: 50px;
+  border: none;
+  background-color: #0e9892;
+  border-radius: 10px;
+  font-family: Raleway;
+  font-size: 18px;
+  color: #fff;
+
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+`
+
+export const Professor = styled.div`
+  font-size: 16px;
+  background-color: #fff;
+  opacity: 0.8;
+  padding: 20px;
+  color: #333;
 `
