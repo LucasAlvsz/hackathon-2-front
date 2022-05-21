@@ -18,7 +18,7 @@ export default function Chat() {
 	useEffect(() => {
 		const config = {
 			headers: {
-				chat_id: "62883ca56b13c3dcc6ee19c7",
+				chat_id: localStorage.getItem("chatId"),
 			},
 		}
 		const promise = axios.get(
@@ -26,7 +26,6 @@ export default function Chat() {
 			config
 		)
 		promise.then(response => {
-			console.log(response.data)
 			setMessages(response.data)
 		})
 		promise.catch(error => {
@@ -42,15 +41,22 @@ export default function Chat() {
 					src={logout}
 					alt="logout"
 					onClick={() => {
+						localStorage.clear()
+						axios.delete(
+							`http://localhost:5000/match/chat/${localStorage.getItem(
+								"chatId"
+							)}`
+						)
 						navigate("/")
 					}}
 				/>
 			</Header>
 			<ChatBox>
 				<div className="chat-body">
-					{messages?.map(({ text, from }) => {
+					{messages?.map(({ _id, text, from }) => {
 						return (
 							<div
+								key={_id}
 								className={
 									JSON.parse(
 										localStorage.getItem("studentName")
@@ -74,17 +80,13 @@ export default function Chat() {
 								{
 									from: JSON.parse(
 										localStorage.getItem("studentId")
-									),
-									to: JSON.parse(
-										localStorage.getItem("teacherId")
-									),
+									).studentId,
+									to: localStorage.getItem("teacherId"),
 									text: newMessage,
 								},
 								{
 									headers: {
-										chat_id: JSON.parse(
-											localStorage.getItem("chatId")
-										),
+										chat_id: localStorage.getItem("chatId"),
 									},
 								}
 							)
