@@ -6,6 +6,11 @@ export default function StartNow() {
             <h1>Promigle</h1>
             <p>Aprendendo programação com professores do Brasil todo!</p>
             <p>Comece agora!</p>
+            <input 
+                type='text' 
+                placeholder="Digite seu nome aqui..."
+                required
+            />
             <div className="buttons">
                 <button>Quero aprender</button>
                 <button>Quero ensinar</button>
@@ -36,7 +41,7 @@ const Div = styled.div`
     p {
         font-family: Raleway;
         font-size: 20px;
-        margin-bottom: 80px;
+        margin-bottom: 50px;
     }
 
     .buttons {
@@ -55,5 +60,12 @@ const Div = styled.div`
         font-family: Raleway;
         font-size: 18px;
         color: #fff;
+    }
+
+    input {
+        width: 200px;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
     }
 `;
